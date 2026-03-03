@@ -902,6 +902,52 @@
   opacity: 0.7;
 }
 
+.footer-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-author-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.footer-author-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  transition: all 0.2s ease;
+}
+
+.footer-author-link:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-1px);
+}
+
+.footer-author-link svg {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.footer-author-link:hover svg {
+  opacity: 1;
+}
+
 /* ===== Header Tabs ===== */
 .header-tabs {
   display: flex;

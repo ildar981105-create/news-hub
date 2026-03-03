@@ -205,6 +205,22 @@ function App() {
             新闻聚合 · AI 产品库 · 产品新闻 & 评论 · 批量翻译 · 每日更新
           </span>
         </div>
+        <div className="footer-author">
+          <span className="footer-author-label">Made by</span>
+          <a
+            href="https://ildar981105-create.github.io/myweb/freelance.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-author-link"
+          >
+            伊力达尔 · B端交互设计师
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </div>
       </footer>
     </div>
   );
