@@ -11,7 +11,7 @@ import { useProductNews } from './hooks/useProductNews';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('news');
+  const [activeTab, setActiveTab] = useState('products');
 
   const {
     articles,
@@ -88,7 +88,27 @@ function App() {
     <div className="app">
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
       <main className="main">
-        {activeTab === 'news' ? (
+        {activeTab === 'products' ? (
+          <AIProducts
+            products={products}
+            trendingProducts={trendingProducts}
+            categories={productCategories}
+            categoryFilter={categoryFilter}
+            onCategoryChange={setCategoryFilter}
+            categoryCounts={categoryCounts}
+            searchQuery={productSearch}
+            onSearchChange={setProductSearch}
+            lastUpdated={lastUpdated}
+            totalCount={totalCount}
+            productNews={productNews}
+            productNewsLoading={productNewsLoading}
+            productNewsError={productNewsError}
+            onFetchProductNews={fetchProductNews}
+            getComments={getComments}
+            onAddComment={addComment}
+            onLikeComment={likeComment}
+          />
+        ) : (
           <>
             <div className="ai-products-header">
               <div className="ai-products-title-area">
@@ -150,44 +170,30 @@ function App() {
                 </button>
               </div>
             </div>
-            <RecentUpdates
-              recentNews={recentNews}
-              recentProducts={recentProducts}
-              lastFetched={lastFetched}
-              onRefresh={handleRefreshAll}
-              loading={loading}
-              onTabChange={setActiveTab}
-            />
-            <FilterBar filter={filter} onFilterChange={setFilter} counts={counts} />
-            <NewsList
-              articles={articles}
-              loading={loading}
-              error={error}
-              translatedMap={translatedMap}
-              translatingIds={translatingIds}
-              onTranslateOne={translateOne}
-            />
+            <div className="news-layout">
+              <div className="news-main">
+                <FilterBar filter={filter} onFilterChange={setFilter} counts={counts} />
+                <NewsList
+                  articles={articles}
+                  loading={loading}
+                  error={error}
+                  translatedMap={translatedMap}
+                  translatingIds={translatingIds}
+                  onTranslateOne={translateOne}
+                />
+              </div>
+              <aside className="news-sidebar">
+                <RecentUpdates
+                  recentNews={recentNews}
+                  recentProducts={recentProducts}
+                  lastFetched={lastFetched}
+                  onRefresh={handleRefreshAll}
+                  loading={loading}
+                  onTabChange={setActiveTab}
+                />
+              </aside>
+            </div>
           </>
-        ) : (
-          <AIProducts
-            products={products}
-            trendingProducts={trendingProducts}
-            categories={productCategories}
-            categoryFilter={categoryFilter}
-            onCategoryChange={setCategoryFilter}
-            categoryCounts={categoryCounts}
-            searchQuery={productSearch}
-            onSearchChange={setProductSearch}
-            lastUpdated={lastUpdated}
-            totalCount={totalCount}
-            productNews={productNews}
-            productNewsLoading={productNewsLoading}
-            productNewsError={productNewsError}
-            onFetchProductNews={fetchProductNews}
-            getComments={getComments}
-            onAddComment={addComment}
-            onLikeComment={likeComment}
-          />
         )}
       </main>
       <footer className="footer">

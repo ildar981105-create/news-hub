@@ -119,7 +119,6 @@ export default function RecentUpdates({
                       <span className="recent-item-time">{timeAgo(article.pubDate)}</span>
                     </div>
                   </div>
-                  <span className="recent-item-new-tag">NEW</span>
                 </a>
               ))}
 
@@ -154,7 +153,6 @@ export default function RecentUpdates({
                       </h4>
                       <p className="recent-item-desc">{product.description}</p>
                     </div>
-                    <span className="recent-item-new-tag">NEW</span>
                   </div>
                 );
               })}

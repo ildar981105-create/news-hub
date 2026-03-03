@@ -194,6 +194,92 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
+/* ===== News Layout: main + sidebar ===== */
+.news-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.news-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-sidebar {
+  width: 340px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.news-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.news-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.news-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 2px;
+}
+
+/* Sidebar recent-updates overrides */
+.news-sidebar .recent-updates {
+  margin-bottom: 0;
+}
+
+.news-sidebar .recent-updates-header {
+  padding: 14px 16px;
+}
+
+.news-sidebar .recent-updates-title {
+  font-size: 0.95rem;
+}
+
+.news-sidebar .recent-item {
+  padding: 10px 16px;
+  gap: 10px;
+}
+
+.news-sidebar .recent-item-badge {
+  min-width: 44px;
+}
+
+.news-sidebar .recent-item-title {
+  font-size: 0.82rem;
+}
+
+.news-sidebar .recent-item-desc {
+  font-size: 0.72rem;
+}
+
+.news-sidebar .recent-item-meta {
+  font-size: 0.68rem;
+}
+
+.news-sidebar .recent-item-new-tag {
+  font-size: 0.55rem;
+  padding: 1px 6px;
+}
+
+.news-sidebar .recent-updates-view-all {
+  padding: 10px 16px;
+  font-size: 0.78rem;
+}
+
+.news-sidebar .recent-updates-loading {
+  padding: 12px 16px;
+}
+
+.news-sidebar .recent-updates-skeleton {
+  height: 40px;
+}
+
 /* ===== News Grid ===== */
 .news-grid {
   display: grid;
@@ -2241,6 +2327,17 @@
 
   .news-grid {
     grid-template-columns: 1fr;
+  }
+
+  .news-layout {
+    flex-direction: column;
+  }
+
+  .news-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    order: -1;
   }
 
   .filter-bar {
